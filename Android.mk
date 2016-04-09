@@ -6,7 +6,7 @@ else
     TARGET_USES_SDM = false
 endif
 
-display-hals := libgralloc libcopybit liblight libmemtrack libqservice libqdutils
+display-hals := libgralloc libcopybit libmemtrack libqservice libqdutils
 display-hals += hdmi_cec
 
 ifeq ($(TARGET_USES_SDM), true)
@@ -14,6 +14,10 @@ ifeq ($(TARGET_USES_SDM), true)
     display-hals += $(sdm-libs)/utils $(sdm-libs)/core $(sdm-libs)/hwc
 else
     display-hals += libgenlock libhwcomposer liboverlay libhdmi
+endif
+
+ifneq ($(TARGET_PROVIDES_LIBLIGHT),true)
+display-hals += liblight
 endif
 
 ifeq ($(call is-vendor-board-platform,QCOM),true)
