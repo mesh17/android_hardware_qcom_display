@@ -50,10 +50,6 @@
 // Max number of PTOR layers handled
 #define MAX_PTOR_LAYERS 2
 
-#ifdef QTI_BSP
-#include <exhwcomposer_defs.h>
-#endif
-
 //Fwrd decls
 struct hwc_context_t;
 
